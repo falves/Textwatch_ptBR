@@ -146,7 +146,7 @@ void fuzzy_hours_to_words(PblTm *t, char* words) {
       remaining -= append_string(words, remaining, HORAS[fuzzy_hours%12]);
   }
 
-  if (fuzzy_minutes != 0 && (fuzzy_minutes != 30 || fuzzy_minutes > 9) )
+  if (fuzzy_minutes != 30 || fuzzy_minutes > 9) 
   {
     remaining -= append_string(words, remaining, " e");
   }
