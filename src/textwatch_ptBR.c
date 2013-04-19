@@ -82,7 +82,7 @@ static void handle_minute_tick(AppContextRef app_ctx, PebbleTickEvent* e) {
   {
     int minutos = t->tm_min;
 
-    if (minutos < 21 || minutos%10 == 0 )
+    if (minutos < 21 || minutos%10 == 0 || minutos == 31)
     {
         update_layer(&layers[1]);
     }
