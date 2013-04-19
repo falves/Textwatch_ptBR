@@ -55,7 +55,7 @@ static const char* HORAS[] = {
 };
 
 static const char* STR_OH_CLOCK = "em ponto";
-static const char* STR_MID = "e meia";
+static const char* STR_MID = "meia";
 
 
 static size_t append_number(char* words, int num) 
@@ -146,7 +146,7 @@ void fuzzy_hours_to_words(PblTm *t, char* words) {
       remaining -= append_string(words, remaining, HORAS[fuzzy_hours%12]);
   }
 
-  if (fuzzy_minutes != 30 && fuzzy_minutes != 0) 
+  if ( fuzzy_minutes > 9 ) 
   {
     remaining -= append_string(words, remaining, " e");
   }

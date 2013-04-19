@@ -88,6 +88,12 @@ static void handle_minute_tick(AppContextRef app_ctx, PebbleTickEvent* e) {
     }
 
     update_layer(&layers[0]);
+
+    if (minutos == 20)
+    {
+      update_layer(&layers[2]);
+    }
+
   }
 
   if ((e->units_changed & HOUR_UNIT) == HOUR_UNIT) {
