@@ -80,12 +80,17 @@ static void handle_minute_tick(AppContextRef app_ctx, PebbleTickEvent* e) {
   PblTm *t = e->tick_time;
   if((e->units_changed & MINUTE_UNIT) == MINUTE_UNIT) 
   {
+    int minutos = t->tm_min;
+
+    if (minutos < 21 || minutos%10 == 0 )
+    {
+        update_layer(&layers[1]);
+    }
+
     update_layer(&layers[0]);
-    update_layer(&layers[1]);
   }
 
-  if ((e->units_changed & HOUR_UNIT) == HOUR_UNIT ||
-        ((t->tm_hour == 00 || t->tm_hour == 12) && t->tm_min == 1)) {
+  if ((e->units_changed & HOUR_UNIT) == HOUR_UNIT) {
     update_layer(&layers[2]);
   }
   if ((e->units_changed & DAY_UNIT) == DAY_UNIT) {
