@@ -13,6 +13,11 @@
         "defName": "FONT_ROBOTO_BOLD_SUBSET_40",
         "file": "fonts/Roboto-Bold.ttf"
         },
+        {
+        "type": "font",
+        "defName": "FONT_ROBOTO_BOLD_SUBSET_30",
+        "file": "fonts/Roboto-Bold.ttf"
+        },
          {
         "type": "font",
       	 "defName": "FONT_ROBOTO_LIGHT_30",

@@ -97,7 +97,7 @@ void fuzzy_minutes_to_words(PblTm *t, char* words) {
   size_t remaining = BUFFER_SIZE;
   memset(words, 0, BUFFER_SIZE);
 
-  if (fuzzy_minutes != 0 || (fuzzy_hours != 12 && fuzzy_hours != 0)) 
+  if (fuzzy_minutes != 0 ) 
   {
     if(fuzzy_minutes == 0)
     {
@@ -128,18 +128,27 @@ void fuzzy_sminutes_to_words(PblTm *t, char* words) {
 
 void fuzzy_hours_to_words(PblTm *t, char* words) {
   int fuzzy_hours = t->tm_hour;
+  int fuzzy_minutes = t->tm_min;
 
   size_t remaining = BUFFER_SIZE;
   memset(words, 0, BUFFER_SIZE);
 
-  // //Is it midnight?
-  if (fuzzy_hours == 0) {
-    remaining -= append_string(words, remaining, "meia-noite");
-  //is it noon?
-  } else if (fuzzy_hours == 12) {
-    remaining -= append_string(words, remaining, "meio-dia");
-  } else {
+  if (fuzzy_hours == 0) 
+  {
+    remaining -= append_string(words, remaining, "meia noite");
+  } 
+  else if (fuzzy_hours == 12) 
+  {
+    remaining -= append_string(words, remaining, "meio dia");
+  } 
+  else 
+  {
       remaining -= append_string(words, remaining, HORAS[fuzzy_hours%12]);
+  }
+
+  if (fuzzy_minutes != 0 && (fuzzy_minutes != 30 || fuzzy_minutes > 9) )
+  {
+    remaining -= append_string(words, remaining, " e");
   }
 }
 

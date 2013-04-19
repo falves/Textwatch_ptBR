@@ -112,14 +112,14 @@ void handle_init(AppContextRef ctx) {
   light = fonts_load_custom_font(resource_get_handle(
                       RESOURCE_ID_FONT_ROBOTO_LIGHT_30));
   bold = fonts_load_custom_font(resource_get_handle(
-                      RESOURCE_ID_FONT_ROBOTO_BOLD_SUBSET_40));
+                      RESOURCE_ID_FONT_ROBOTO_BOLD_SUBSET_30));
   small = fonts_load_custom_font(resource_get_handle(
                       RESOURCE_ID_FONT_ROBOTO_CONDENSED_21));
 // single digits
-  init_layer(&layers[0], GRect(0, 81, window.layer.frame.size.w, 35), light);
+  init_layer(&layers[0], GRect(0, 73, window.layer.frame.size.w, 35), light); // 81
 
 // 00 minutes
-  init_layer(&layers[1], GRect(0, 46, window.layer.frame.size.w, 34), light);
+  init_layer(&layers[1], GRect(0, 38, window.layer.frame.size.w, 34), light); //46
 
 //hours
   init_layer(&layers[2], GRect(0, 0, window.layer.frame.size.w, 45), bold);
